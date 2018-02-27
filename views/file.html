@@ -37,15 +37,20 @@
             </div>
          </div>
       </div>
+      <div class="container">
       <h3>upload audio file of any type(expected:wav,mp3,ogg)</h3>
       <div class="form-horizonatal">
          <form method="POST" action="/analyser/uploadFileSubmit" enctype="multipart/form-data">
             <label for="uploadFile">Upload Audio File</label>
             <input name="uploadFile" type="file" id="uploadFile" accept="audio/wav, audio/mp3, audio/ogg"/>
-            <button class="btn waves-effect waves-light" type="submit" name="uploadFileSubmit"><i class="material-icons right">send</i>Submit</button>
+            <button class="btn waves-effect waves-light" type="submit" name="uploadFileSubmit">Submit</button>
          </form>
       </div>
-      <div>
+    </div>
+    <form method="POST" action="/analyser/analyse">
+    <button class="btn waves-effect waves-light" type="submit" name="analyse">analyse</button>
+</form>
+      <div class="container">
          <h1>Recorder.js simple WAV export example</h1>
          <p>Make sure you are using a recent version of Google Chrome.</p>
          <p>Also before you enable microphone input either plug in headphones or turn the volume down if you want to avoid ear splitting feedback!</p>
@@ -54,8 +59,10 @@
          <h2>Recordings</h2>
          <ul id="recordingslist"></ul>
       </div>
+      <div class="container">
       <h2>Log</h2>
       <pre id="log"></pre>
+    </div>
       <script src="recorder.js"></script>
       <script>
          var recBlob;
@@ -128,25 +135,12 @@
          var fd = new FormData();
           fd.append('uploadFile', blob, `${hf.download}.wav`);
 
-          fetch('/recordFileConvert',
+          fetch('/analyser/recordFileConvert',
           {
               method: 'post',
               body: fd
           });
-           // var xhr=new XMLHttpRequest();
-         // xhr.onload=function(e) {
-         //  if(this.readyState === 4) {
-         //      console.log("Server returned: ",e.target.responseText);
-         //  }
-         // };
-         // var fd=new FormData();
-         // fd.append("uploadFile",blob);
-         // xhr.open("POST","recordFileConvert",true);
-         // xhr.send(fd);
-         // console.log(fd);
-         // code above to send recorded file to server
-
-
+          //code above to send recorded file to get stored in server for optional further analysis
          recBlob = blob;
          });
          }
@@ -297,9 +291,7 @@
 
              }, dfd.reject);
 
-             return dfd.promise().always(function ()
-             {
-             });
+             return dfd.promise().always(function (){});
          }
          function Show(json)
          {

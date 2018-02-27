@@ -5,9 +5,8 @@ exports.wavConvert=function(reqfilename, filename){
     const ffmpeg = require('ffmpeg-win');
     function done(err) {
       if (err) reject(err) ;
-      else resolve(console.log('ok, done'));
+      else resolve(console.log('file uploaded and converted'));
     }
-    console.log(filename);
     ffmpeg.wav(`public/audioUploads/${reqfilename}`, `public/audioUploads/${filename}.wav`, done);
 
   });

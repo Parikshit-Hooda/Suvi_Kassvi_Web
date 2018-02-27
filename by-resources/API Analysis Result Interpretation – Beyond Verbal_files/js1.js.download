@@ -1,0 +1,445 @@
+var $ = jQuery;
+
+
+
+
+jQuery(document).ready(function($) {
+
+    // box news render
+    boxNewsRender();
+
+
+
+
+$(window).on('resize', function(event) {
+   $('.list').removeAttr('style data-status');
+   $('.team-member-info, .team-picture_hover, .team-details').removeClass('active');
+   $('.team-picture, .abs').removeClass('dn');
+});
+
+$('.list').on('click', '.team-member-info', function(event) {
+     var form = $('.team-form-wrap');
+
+      if ($(this).parent().attr('data-status') == 'open') {
+        $('.list').removeAttr('style data-status');
+        $('.team-member-info, .team-picture_hover, .team-details').removeClass('active');
+        $('.team-picture, .abs').removeClass('dn');
+  } else{
+       $('.team-member-info, .team-picture_hover, .team-details').removeClass('active');
+       $('.list').removeAttr('style data-status');
+       $('.team-picture, .abs').removeClass('dn');
+
+
+       $(this).next('.team-details').find('.wf').append(form);
+
+       $(this).addClass('active');
+       $(this).next('.team-details').addClass('active');
+       $(this).find('.team-picture_hover').addClass('active');
+       $(this).find('.team-picture, .abs').addClass('dn');
+
+         var h = $(this).next('.team-details').height(),
+             p = $(this).parent().position().top,
+             h2 = $(this).parent().height();
+         $(this).parent().css('margin-bottom', h + 30 +'px');
+         $(this).next('.team-details').css('top', p+h2+'px');
+         $(this).parent().attr('data-status', 'open');
+         $('html, body').animate({
+                scrollTop: $(this).offset().top +-150 + 'px'
+               }, 1000);
+      }
+    });
+
+
+
+  jQuery('.arrow-top-site').on('click', function(event) {
+    jQuery('html, body').animate({
+         scrollTop: jQuery('body').offset().top +'px'
+        }, 1000);
+  });
+
+  jQuery('.arrow-down').on('click', function(event) {
+       jQuery('html, body').animate({
+         scrollTop: jQuery('#home-section3').offset().top -150 
+         +'px'
+        }, 1000);
+  });
+
+
+      jQuery(window).on('scroll', function(event) {
+        event.preventDefault();
+          var client_w = document.body.clientWidth;
+        var formAddressOffset = jQuery('.form-address').offset().top - 400;
+          if (jQuery(window).scrollTop() >= formAddressOffset) {
+                jQuery(".address-wrap, .talk-wrap").addClass('scroll');
+              };
+          if (jQuery(window).scrollTop() >= 100) {
+            jQuery('.logo > img').addClass('small-logo');
+          }else{
+            jQuery('.logo > img').removeClass('small-logo');
+          };
+          if(jQuery(window).scrollTop() >= 300){
+            jQuery('.arrow-top-site').css('display', 'block');
+          }else{
+            jQuery('.arrow-top-site').css('display', 'none');
+          };
+          if (jQuery('#home-section2').length >= 1) {
+           if((jQuery(window).scrollTop() >= 100)&&(parseInt(client_w)>1200)){
+            jQuery('.arrow-down').removeClass('arrow-bottom-anim')
+            .addClass('arrow-top-anim');
+            jQuery('#home-section2').removeClass('animate-bottom')
+            .addClass('animate-top');
+          };
+          if((jQuery(window).scrollTop() == 0)&&(parseInt(client_w)>1200)){
+              jQuery('.arrow-down').removeClass('arrow-top-anim')
+              .addClass('arrow-bottom-anim');
+              jQuery('#home-section2').removeClass('animate-top')
+              .addClass('animate-bottom');
+          };
+        };
+      });
+
+  jQuery('.open-app').on('click', function(event) {
+    event.preventDefault();
+    openApp();
+  });
+
+       
+
+ function openApp(){
+  if(!jQuery('#ifr').length){
+    if (jQuery(window).width() >= 1200) {
+      jQuery('<iframe width="1100" height="770" id="ifr" src="http://moodies.beyondverbal.com/client/index.html?v=1" frameborder="0" allowtransparency="true"></iframe>').appendTo('.iframe-wrapper');
+    }
+  }
+   if (document.getElementById('iframePopup').style.display=="none") {
+     document.getElementById('iframePopup').style.display = "block";
+     document.getElementById('iframeModule').style.display = "block";
+   } else { 
+     document.getElementById('iframePopup').style.display = "none";
+     document.getElementById('iframeModule').style.display = "none";
+   };
+ };
+
+
+
+  jQuery('.sec6-button').on('click', function(event) {
+    event.preventDefault();
+  var id = jQuery(this).attr('href');
+      jQuery('.sec6-text').removeClass('o0');
+      jQuery('.sec6-text').removeClass('o1');
+      jQuery('.sec6-text').not(jQuery(id)).addClass('o0');
+      jQuery(id).addClass('o1');
+  });
+
+
+  // var ind = 0,
+  //     banners =  document.querySelectorAll('.banner-bot-circle');
+   
+
+  // for (var i = 0; i < banners.length; i++) {
+  //   var node = document.createElement("DIV");
+  //   node.classList.add('counter-point');
+  //   node.setAttribute("data-counter", i);
+  //   document.getElementById("banner_counters").appendChild(node);
+  // };
+
+  //   circleMove(1);
+
+  //  function circleMove(id){
+  //    ind = id
+  
+  //  if (jQuery('.text-hidden').hasClass('vanishOut')) {
+  //    jQuery('.text-hidden').removeClass('vanishOut');
+  //  }
+   
+  //  setTimeout(function(){ jQuery('.text-hidden').addClass('vanishOut'); },400);
+ 
+ 
+  //  if (ind > banners.length -1 ) {
+  //    ind = 0;
+  //  }
+
+ 
+  //  for (var i = 0; i < banners.length; i++) {
+  //    banners[i].classList.remove('stackPosition');
+  //    banners[i].classList.remove('openUpRightOut');
+  //    banners[i].classList.remove('o1');
+  //  };
+
+  //  var counterPoint =  document.querySelectorAll('.counter-point');
+
+  //  for (var i = 0; i < counterPoint.length; i++) {
+  //    counterPoint[i].classList.remove('counter-active');
+  //  };
+
+  //  var z = ind +1;
+  //  banners[ind].classList.add('openUpRightOut');
+  //  banners[ind].classList.add('stackPosition');
+  //  banners[ind].classList.add('o1');
+
+  //  counterPoint[ind].classList.add('counter-active');
+   
+  
+  //  // setTimeout(function(){ banners[ind].classList.add('stackPosition'); }, 1100);
+    
+  //  }
+
+  //   document.querySelector('.sec1-banner-bot button').addEventListener("click", function(event){
+  //         ind++;
+  //       circleMove(ind);
+  //   }, false)
+  
+  // jQuery('.sec1-banner-bot button').on('click', function(event) {
+
+   
+  //   if (jQuery('.text-hidden').hasClass('vanishOut')) {
+  //     jQuery('.text-hidden').removeClass('vanishOut');
+  //   }
+
+  //   setTimeout(function(){ jQuery('.text-hidden').addClass('vanishOut'); },100);
+
+    
+    
+  //   if (jQuery('.blue-circle').hasClass('o0')) {
+  //     jQuery('.blue-circle').removeClass('o0'); 
+  //     jQuery('.red-circle').removeClass('stackPosition o1'); 
+  //     jQuery('.red-circle').addClass('openUpRightOut o0');
+  //     setTimeout(function(){ jQuery('.red-circle').removeClass('openUpRightOut'); }, 1100);
+  //     jQuery('.blue-circle').addClass('stackPosition o1');
+
+  //     jQuery('.counter-point2').removeClass('counter-active');
+  //     jQuery('.counter-point1').addClass('counter-active');
+
+  //   } else {
+  //     jQuery('.blue-circle').removeClass('stackPosition o1'); 
+  //     jQuery('.red-circle').removeClass('o0'); 
+  //     jQuery('.blue-circle').addClass('openUpRightOut o0'); 
+  //     setTimeout(function(){ jQuery('.blue-circle').removeClass('openUpRightOut'); }, 1100);
+  //     jQuery('.red-circle').addClass('stackPosition o1');
+
+  //     jQuery('.counter-point1').removeClass('counter-active');
+  //     jQuery('.counter-point2').addClass('counter-active');
+
+  //   };
+
+  // });
+
+  jQuery('.menu-toggle').on('click', function(e) {
+      jQuery('#primary-menu').slideToggle();
+  });
+
+
+      jQuery('.single .entry-content img').each(function () {
+
+        var jQuerythis = jQuery(this);
+
+        jQuerythis.wrap('<a href="' + jQuerythis.attr('src') + '" class="' + 'pretty-photo'+ '"></a>');
+
+    });
+    jQuery(".pretty-photo").prettyPhoto({
+      slideshow: 5000,
+      autoplay_slideshow: false,
+      animationSpeed: 'normal',
+      padding: 40,
+      opacity: 0.8,
+      showTitle: true,
+      social_tools: false,
+      deeplinking:false
+    });
+
+
+
+
+
+});
+
+/**
+ * function stringBreaker breaks string after maxChars
+ * @param element - for which use string break
+ * @param maxChars string|int - number of characters to break
+ */
+function stringBreaker(element, maxChars) {
+    if(!maxChars) {
+        maxChars = 300;
+    }
+    element.each(function(i, e) {
+        var $e =  jQuery(e);
+        var text = $e.text();
+        text = text.replace('<b>', '');
+        text = text.replace('</b>', '');
+        if(text.length > maxChars) {
+            text = text.substr(0, maxChars) + '...';
+        }
+        $e.html(text);
+    });
+}
+
+/**
+ * function boxNewsRender uses to render news by clicking on news title
+ * in news title list on home page.
+ */
+function boxNewsRender() {
+    var $boxCompany = jQuery('.box-company');
+    jQuery('.box-news .pt-cv-title a').click(function(e) {
+        e.preventDefault();
+        // $('html, body').animate({
+        //        scrollTop: $('#box-post-container').offset().top -1100 +'px'
+        //       }, 1000);
+        var $a = jQuery(this);
+        var aHref = $a.attr('href');
+        var $boxContainer = jQuery('#box-post-container');
+        var $aInBoxContainer = $boxContainer.find('.pt-cv-title a');
+        var className = 'content-item-active';
+
+        if($aInBoxContainer.length && $aInBoxContainer.attr('href') == aHref) {
+            // return back $boxCompany
+            $boxCompany.css('display', 'block');
+            $boxContainer.css('display', 'none');
+            $boxContainer.html('');
+            jQuery(this).closest('.pt-cv-page').find('.pt-cv-content-item').removeClass(className);
+            return;
+        }
+
+        // add class to this a, remove in other a
+        jQuery(this).closest('.pt-cv-page').find('.pt-cv-content-item').removeClass(className);
+        jQuery(this).closest('.pt-cv-content-item').addClass(className);
+
+        $boxContainer.html('');
+        $boxContainer.css('display', 'block');
+        // hide box-company
+        $boxCompany.css('display', 'none');
+
+        var $hiddenBoxNews = jQuery('#hiden-box-news');
+        var $searchedNews = $hiddenBoxNews.find('.pt-cv-title a[href="' + aHref + '"]')
+            .closest('.pt-cv-content-item').clone();
+
+        if($searchedNews.length) {
+            $boxContainer.append($searchedNews);
+        } else {
+            console.log('searchedNews error');
+        }
+
+  
+
+    });
+}
+
+
+      jQuery('.main-testimonial_btn').on('click', function(event) {
+        jQuery('.main-testimonial_toggle').toggleClass('main-testimonial_toggle_add');
+        jQuery('.testimonial-arrow').toggleClass('arrow-rotate');
+      });
+
+      jQuery('.news_btn').on('click', function(event) {
+        jQuery('.news-arrow').toggleClass('arrow-rotate');
+
+        jQuery('.news_btn_toggle').toggleClass('db');
+
+        // if (jQuery('.news_btn_toggle').hasClass('ha')) {
+        //     jQuery('.news_btn_toggle').removeClass('ha');
+        //     setTimeout(function(){ 
+        //         jQuery('.news_btn_toggle').removeClass('news_btn_toggle_add');
+        //     }, 100);
+        // } else {
+        //     jQuery('.news_btn_toggle').addClass('news_btn_toggle_add');
+        //     setTimeout(function(){ 
+        //         jQuery('.news_btn_toggle').addClass('ha');
+        //     }, 1000);
+        // }
+
+      });
+
+
+
+
+var modal = document.getElementById('api_modal_content');
+var span = document.getElementsByClassName("close")[0];
+
+var btn = $('#api__btn');
+
+btn.on('click', function() {
+    modal.style.display = "block";
+});
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
+
+$('.but_sub').on("click",function () {
+    var name = $('#mc-embedded-subscribe-form #mce-NAME').val();
+    var email = $('#mc-embedded-subscribe-form #mce-EMAIL').val();
+    var phone = $('#mc-embedded-subscribe-form #mce-PHONE').val();
+    // var template = "<div class='after_click'><div class='load_img'><img class='set_img' src='/wp-content/uploads/2017/10/graph-survey-platform-design-ux-interface-ramotion.gif' alt=''></div><p class='text_inform'>Thank you for submitting your details</p><p class='text_inform1'>You are now being redirected to the Developers Site <br> to create your API Key for a Free Trial</p></div>";
+    // $("#api_modal_content").html(template);
+    $(".api_mod").hide(500);
+    $(".modal_loader").addClass("open").show(1000);
+    setTimeout(function(){
+        var url = "http://developers.beyondverbal.com/Account/singup?email="+ email +"&name="+ name +"&phone="+ phone;
+        $(location).attr('href',url);
+    }, 9000);
+
+});
+
+
+
+
+jQuery(document).ready(function ($) {
+    // $('#mc-embedded-subscribe').on("click", function (e) {
+    //     e.preventDefault();
+    //
+    //     $('#mc-embedded-subscribe-form #mce-NAME').attr('value', 'test@test.com');
+    //     $('#mc-embedded-subscribe-form #mce-EMAIL').attr('value', 'test@test.com');
+    //     $('#mc-embedded-subscribe-form #mce-PHONE').attr('value', 'test@test.com');
+    //
+    //     var $form = $('#mc-embedded-subscribe-form');
+    //     console.log($form.attr('action'));
+    //     $.ajax({
+    //         type: "POST",
+    //         url: 'https://beyondverbal.us16.list-manage.com/subscribe/post?u=a9d8cf2faaac5e2bb10d2e4d5&id=6baed5e05f',
+    //         data: $form.serialize(),
+    //         cache: false,
+    //         dataType: "jsonp",
+    //         jsonp: "c", // trigger MailChimp to return a JSONP response
+    //         contentType: "application/json; charset=utf-8",
+    //         success: function (data) {
+    //             console.log(data);
+    //             if (data.result != "success") {
+    //                 console.log('poop');
+    //             } else {
+    //                 console.log('woo hoo');
+    //             }
+    //         },
+    //         error: function (jqXhr, textStatus, errorThrown) {
+    //             console.log(jqXhr, textStatus, errorThrown);
+    //         }
+    //     });
+    //
+    //
+    // });
+
+
+
+        // // setTimeout(() => resolve(1), 2000);
+        // var name = $('#mc-embedded-subscribe-form #mce-NAME').val();
+        // var email = $('#mc-embedded-subscribe-form #mce-EMAIL').val();
+        // var phone = $('#mc-embedded-subscribe-form #mce-PHONE').val();
+        // var template = "<div class='after_click'><div class='load_img'><img class='set_img' src='/wp-content/uploads/2017/10/graph-survey-platform-design-ux-interface-ramotion.gif' alt=''></div><p class='text_inform'>Thank you for submitting your details</p><p class='text_inform1'>You are now being redirected to the Developers Site <br> to create your API Key for a Free Trial</ptext_inform></div>";
+        // $("#api_modal_content").html(template);
+        // setTimeout(function(){
+        //     var url = "http://developers.beyondverbal.com/Account/singup?email="+ email +"&name="+ name +"&phone="+ phone;
+        //     $(location).attr('href',url);
+        // }, 9000);
+
+});
+
+
+
+
+

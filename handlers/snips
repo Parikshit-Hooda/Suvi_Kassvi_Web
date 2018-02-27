@@ -1,0 +1,40 @@
+var recordingId='';
+var authToken = '';
+var options0 = { method: 'POST',
+url: 'https://token.beyondverbal.com/token',
+headers:
+ { 'Content-Type': 'application/x-www-form-urlencoded' },
+form:
+ { apiKey: process.env.BEYOND_VERBAL_API,
+   grant_type: 'client_credentials' } };
+
+request(options0)
+.then(function (body) {
+  var info = JSON.parse(body);
+  authToken = info.access_token;
+  console.log('auth token' + authToken);
+  // return authToken;
+  })
+  .catch(function(error){
+    console.log('error occured in request 0');
+  });
+  // var newvar = authToken;
+  // console.log(newvar);
+//   var options1 = { method: 'POST',
+//   url: 'https://apiv3.beyondverbal.com/v3/recording/start',
+//   headers:
+//    {
+//      Authorization: `Bearer ${newvar}`,
+//      'Content-Type': 'application/json' },
+//   body:
+//    { dataFormat: { type: 'WAV' },
+//      metadata: { clientId: 'testclientid' } },
+//   json: true };
+//
+// request(options1, function (error, response, body) {
+//   if (error) throw new Error(error);
+//
+//   console.log(body);
+// });
+//
+//

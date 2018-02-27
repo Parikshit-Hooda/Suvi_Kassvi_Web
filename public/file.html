@@ -167,7 +167,7 @@ navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
                 serverUrl: 'https://apiv3.beyondverbal.com/v3/recording/'
 
             },
-            apiKey: "dd2dec2e-95e4-4412-9d88-c385c9a574a4",
+            apiKey: "3cb9118c-79aa-46f2-8a5c-71976e757f51",
             token: ''
 
         };
@@ -205,7 +205,7 @@ navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
                 var reader = new FileReader();
                 reader.onload = function (e)
                 {
-                    analyzeFile("dd2dec2e-95e4-4412-9d88-c385c9a574a4", e.target.result)
+                    analyzeFile("3cb9118c-79aa-46f2-8a5c-71976e757f51", e.target.result)
                         .done(function (res)
                         {
                             Show(res);
@@ -224,7 +224,7 @@ navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
         function authenticate()
         {
             console.log('url token:' + options.url.tokenUrl);
-            options.apiKey = "dd2dec2e-95e4-4412-9d88-c385c9a574a4";
+            options.apiKey = "3cb9118c-79aa-46f2-8a5c-71976e757f51";
             return $.ajax({
                 url: options.url.tokenUrl,
                 type: "POST",
@@ -288,7 +288,7 @@ navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
 
                 if(parsedJson.result.analysisSegments[0] === undefined){
                     $('#result').append("Could not parse the audio.")
-                    
+
                 }else{
             $('#result').append(parsedJson.result.analysisSegments[0].analysis.Mood.Composite.Primary.Phrase); console.log(parsedJson.result.analysisSegments[0].analysis.Mood.Composite.Primary.Phrase);
                 }
