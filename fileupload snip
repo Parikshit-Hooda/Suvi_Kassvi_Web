@@ -1,0 +1,14 @@
+console.log('code to send recorded blob to server start');
+var formData = new FormData();
+formData.append('uploadFile', blob, 'uploadFile-' + hf.download);
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'recordFileConvert', true);
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    alert('xhr status 200');
+  } else {
+    alert('An error occurred!');
+  }
+};
+xhr.send(formData);
+console.log('code to send recorded blob to server ends');
