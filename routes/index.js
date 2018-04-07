@@ -27,6 +27,8 @@ router.post('/analyser/recordFileConvert',
   emotionController.recordFileConvert);
 // router.post('/analyser/analyse',
 //   emotionController.analyseAudio);
+router.get('/analysis', emotionController.getEmotionHistory);
+// router.get('/analysis', emotionController.getemotionHistory);
 
 router.get('/account', authController.isLoggedIn, userController.account);
 router.post('/account', catchErrors(userController.updateAccount));
