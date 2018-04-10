@@ -28,6 +28,13 @@ router.post('/analyser/recordFileConvert',
 // router.post('/analyser/analyse',
 //   emotionController.analyseAudio);
 router.get('/analysis', emotionController.getEmotionHistory);
+router.get('/uploadFileAndAnalysis.html', function(req,res){
+  res.sendFile(process.cwd()+'/views/uploadFileAndAnalysis.html');
+});
+router.get('/realtimeAnalysis.html', function(req,res){
+  res.sendFile(process.cwd()+'/views/realtimeAnalysis.html');
+});
+
 // router.get('/analysis', emotionController.getemotionHistory);
 
 router.get('/account', authController.isLoggedIn, userController.account);
