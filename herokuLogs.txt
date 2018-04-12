@@ -1,0 +1,59 @@
+
+2018-04-12T08:21:31.000000+00:00 app[api]: Build started by user phooda804@gmail.com
+2018-04-12T08:23:03.161288+00:00 app[api]: Deploy cee4c188 by user phooda804@gmail.com
+2018-04-12T08:23:03.161288+00:00 app[api]: Release v9 created by user phooda804@gmail.com
+2018-04-12T08:21:31.000000+00:00 app[api]: Build succeeded
+2018-04-12T08:23:03.783806+00:00 heroku[web.1]: State changed from crashed to starting
+2018-04-12T08:23:16.652269+00:00 heroku[web.1]: Starting process with command `node app.js`
+2018-04-12T08:23:20.324824+00:00 heroku[web.1]: Process exited with status 12018-04-12T08:23:20.344115+00:00 heroku[web.1]: State changed from starting to crashed
+2018-04-12T08:23:20.144227+00:00 app[web.1]:
+2018-04-12T08:23:20.144248+00:00 app[web.1]: /app/node_modules/mongoose/lib/index.js:391
+2018-04-12T08:23:20.144250+00:00 app[web.1]:       throw new mongoose.Error.MissingSchemaError(name);
+2018-04-12T08:23:20.144252+00:00 app[web.1]:       ^
+2018-04-12T08:23:20.144254+00:00 app[web.1]: MissingSchemaError: Schema hasn't been registered for model "User".
+2018-04-12T08:23:20.144256+00:00 app[web.1]: Use mongoose.model(name, schema)
+2018-04-12T08:23:20.144258+00:00 app[web.1]:     at new MissingSchemaError (/app/node_modules/mongoose/lib/error/missingSchema.js:20:11)
+2018-04-12T08:23:20.144260+00:00 app[web.1]:     at Mongoose.model (/app/node_modules/mongoose/lib/index.js:391:13)
+2018-04-12T08:23:20.144261+00:00 app[web.1]:     at Object.<anonymous> (/app/handlers/passport.js:3:23)
+2018-04-12T08:23:20.144263+00:00 app[web.1]:     at Module._compile (internal/modules/cjs/loader.js:654:30)
+2018-04-12T08:23:20.144265+00:00 app[web.1]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:665:10)
+2018-04-12T08:23:20.144269+00:00 app[web.1]:     at Function.Module._load (internal/modules/cjs/loader.js:498:3)
+2018-04-12T08:23:20.144267+00:00 app[web.1]:     at tryModuleLoad (internal/modules/cjs/loader.js:506:12)
+2018-04-12T08:23:20.144266+00:00 app[web.1]:     at Module.load (internal/modules/cjs/loader.js:566:32)
+2018-04-12T08:23:20.144272+00:00 app[web.1]:     at require (internal/modules/cjs/helpers.js:11:18)
+2018-04-12T08:23:20.144273+00:00 app[web.1]:     at Object.<anonymous> (/app/app.js:16:1)
+2018-04-12T08:23:20.144270+00:00 app[web.1]:     at Module.require (internal/modules/cjs/loader.js:598:17)
+2018-04-12T08:23:20.144275+00:00 app[web.1]:     at Module._compile (internal/modules/cjs/loader.js:654:30)
+2018-04-12T08:23:20.144277+00:00 app[web.1]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:665:10)
+2018-04-12T08:23:20.144278+00:00 app[web.1]:     at Module.load (internal/modules/cjs/loader.js:566:32)
+2018-04-12T08:23:20.144280+00:00 app[web.1]:     at tryModuleLoad (internal/modules/cjs/loader.js:506:12)
+2018-04-12T08:23:20.144281+00:00 app[web.1]:     at Function.Module._load (internal/modules/cjs/loader.js:498:3)
+2018-04-12T08:23:20.346639+00:00 heroku[web.1]: State changed from crashed to starting
+2018-04-12T08:23:31.889408+00:00 heroku[web.1]: Starting process with command `node app.js`
+2018-04-12T08:23:35.052915+00:00 heroku[web.1]: State changed from starting to crashed
+2018-04-12T08:23:35.033599+00:00 heroku[web.1]: Process exited with status 12018-04-12T08:23:34.975146+00:00 app[web.1]:
+2018-04-12T08:23:34.975164+00:00 app[web.1]: /app/node_modules/mongoose/lib/index.js:391
+2018-04-12T08:23:34.975167+00:00 app[web.1]:       throw new mongoose.Error.MissingSchemaError(name);
+2018-04-12T08:23:34.975168+00:00 app[web.1]:       ^
+2018-04-12T08:23:34.975719+00:00 app[web.1]: MissingSchemaError: Schema hasn't been registered for model "User".
+2018-04-12T08:23:34.975721+00:00 app[web.1]: Use mongoose.model(name, schema)
+2018-04-12T08:23:34.975724+00:00 app[web.1]:     at new MissingSchemaError (/app/node_modules/mongoose/lib/error/missingSchema.js:20:11)
+2018-04-12T08:23:34.975725+00:00 app[web.1]:     at Mongoose.model (/app/node_modules/mongoose/lib/index.js:391:13)
+2018-04-12T08:23:34.975727+00:00 app[web.1]:     at Object.<anonymous> (/app/handlers/passport.js:3:23)
+2018-04-12T08:23:34.975746+00:00 app[web.1]:     at Module._compile (internal/modules/cjs/loader.js:654:30)
+2018-04-12T08:23:34.975748+00:00 app[web.1]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:665:10)
+2018-04-12T08:23:34.975749+00:00 app[web.1]:     at Module.load (internal/modules/cjs/loader.js:566:32)
+2018-04-12T08:23:34.975751+00:00 app[web.1]:     at tryModuleLoad (internal/modules/cjs/loader.js:506:12)
+2018-04-12T08:23:34.975753+00:00 app[web.1]:     at Function.Module._load (internal/modules/cjs/loader.js:498:3)
+2018-04-12T08:23:34.975754+00:00 app[web.1]:     at Module.require (internal/modules/cjs/loader.js:598:17)
+2018-04-12T08:23:34.975756+00:00 app[web.1]:     at require (internal/modules/cjs/helpers.js:11:18)
+2018-04-12T08:23:34.975757+00:00 app[web.1]:     at Object.<anonymous> (/app/app.js:16:1)
+2018-04-12T08:23:34.975759+00:00 app[web.1]:     at Module._compile (internal/modules/cjs/loader.js:654:30)
+2018-04-12T08:23:34.975760+00:00 app[web.1]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:665:10)
+2018-04-12T08:23:34.975762+00:00 app[web.1]:     at Module.load (internal/modules/cjs/loader.js:566:32)
+2018-04-12T08:23:34.975763+00:00 app[web.1]:     at tryModuleLoad (internal/modules/cjs/loader.js:506:12)
+2018-04-12T08:23:34.975765+00:00 app[web.1]:     at Function.Module._load (internal/modules/cjs/loader.js:498:3)
+2018-04-12T08:23:56.961472+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=teamkassvi.herokuapp.com request_id=208c022a-d745-4c4f-b95b-8a0289fa08ea fwd="103.95.166.202" dyno= connect= service= status=503 bytes= protocol=https
+2018-04-12T08:23:57.491709+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=teamkassvi.herokuapp.com request_id=d5ca391d-1c51-4289-852d-b468374a9771 fwd="103.95.166.202" dyno= connect= service= status=503 bytes= protocol=https
+
+E:\windows\projects\Suvi_Kassvi_Web>
