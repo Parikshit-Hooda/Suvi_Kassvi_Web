@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const MongoStore = require('connect-mongo')(session);
 const path = require('path');
+require('dotenv').config({ path: 'variables.env' });
+
 // const del = require('delete');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -14,12 +16,22 @@ const expressValidator = require('express-validator');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
 require('./handlers/passport');
+
+mongoose.connect(process.env.DATABASE, {useMongoClient:true});
+mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
+mongoose.connection.on('error', (err) => {
+  console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
+});
+
 //routes variables
 const routes = require('./routes/index');
-
+require('./models/User');
+require('./models/Emotion');
 
 // create our Express app
 const app = express();
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our pug files
@@ -96,4 +108,8 @@ app.use(errorHandlers.productionErrors);
 // });
 
 // done! we export it so we can start the site in start.js
+app.set('port', process.env.PORT || 3000);
+const server = app.listen(app.get('port'), () => {
+  console.log(`Express running → PORT ${server.address().port}`);
+});
 module.exports = app;
