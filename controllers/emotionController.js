@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Emotion = mongoose.model('Emotion');
+const Emotion = require('../models/Emotion');
 const extend = require('extend');
 const multer = require('multer');
 const promisify = require('es6-promisify');
