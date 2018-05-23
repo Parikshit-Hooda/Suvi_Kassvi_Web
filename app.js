@@ -17,6 +17,8 @@ const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
 // require('./handlers/passport');
 
+require('./models/User');
+
 mongoose.connect(process.env.DATABASE, { useMongoClient: true });
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 mongoose.connection.on('error', (err) => {
