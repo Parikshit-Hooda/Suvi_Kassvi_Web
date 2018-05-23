@@ -13,8 +13,8 @@ mongoose.connection.on('error', (err) => {
 // READY?! Let's go!
 
 // import all of our models
-require('./models/User');
-require('./models/Emotion');
+// require('./models/User');
+// require('./models/Emotion');
 // require('./models/Review');
 
 // Start our app!
