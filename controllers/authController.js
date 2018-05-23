@@ -1,7 +1,7 @@
 const passport = require('passport');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
-require('../models/User');
+const User = mongoose.model('User');
 var postmark = require("postmark");
 var client = new postmark.Client(process.env.POSTMARK_API);
 
