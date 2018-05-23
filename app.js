@@ -23,8 +23,8 @@ mongoose.connection.on('error', (err) => {
     console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
 
-const User = require('./models/User');
-const Emotion = require('./models/Emotion');
+require('./models/User');
+require('./models/Emotion');
 //routes variables
 const routes = require('./routes/index');
 
