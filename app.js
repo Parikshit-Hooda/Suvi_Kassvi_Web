@@ -34,8 +34,11 @@ app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // connecting to database
-mongoose.connect(process.env.MONGOLAB_URI);
-console.log("connected to database");
+mongoose.connect(process.env.DATABASE, { useMongoClient: true });
+mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
+mongoose.connection.on('error', (err) => {
+    console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
+})
 
 // ROUTES, logic is in routes/index.js
 
