@@ -1,0 +1,551 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Team Kassvi
+    // Fonts
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Questrial', rel='stylesheet')
+    // Materialize css
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(rel='stylesheet', href='css/navbar.css')
+    link(rel='stylesheet', href='css/landing.css')
+    link(rel='stylesheet', href='css/testimonials.css')
+  body
+    // Navbar
+    .navbar-fixed
+      nav
+        .nav-wrapper
+          a.brand-logo(href='#header-sec')
+            img.kaslog(src='images/T.jpg', alt='Team Kassvi Logo')
+          |
+          ul#nav-mobile.right.hide-on-med-and-down
+            li
+              a.no-btn(href='#header-sec') Home
+            li
+              a.no-btn(href='#features') Features
+            li
+              a.no-btn(href='#contact-nav') Contact
+            li
+              a.no-btn(href='dashboard/index.html') Dashboard
+            li
+              a#app-btn.no-btn(href='/analyser') Analyser
+            li
+              a#app-btn.no-btn(href='app-page/index.html') Mobile App
+            li
+              a.waves-effect.btn(href='/login') Login
+            li
+              a.waves-effect.btn(href='/signup') Register
+    // Header
+    #header-sec.header-section
+      .header-content
+        .row
+          .col.s12.m5
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            |
+            .container
+              p.title Bridging The Alexithymic Emotional Gap!
+              |
+              p.title-body
+                | Aiding Socio-Communication Adeptness through Audio Emotion Recognition.
+              |
+              p
+                br
+                |
+                a(href='#features')
+                  button.waves-effect.waves-light.btn.blue Get Started
+          |
+          .col.s12.m7
+            img#header-img(src='images/header-img.png')
+    // HR
+    br
+    .container
+      hr(style='opacity:0.45;background: #6f749a;height: 2px;border: none;')
+    // Parallax-1
+    .parallax-container
+      .center(style='color: #fff; font-size: 35px;font-weight: 100;')
+        br
+        br
+        br
+        br
+        |         Say Hello to a New World!
+      |
+      .parallax
+        img(src='images/child1.jpeg')
+    br
+    br
+    // Features
+    #features.features-section(style='padding-top: 80px;')
+      .features-content.container
+        .row
+          .col.s12.m4.center
+            img.feature-img(src='images/jigsaws.svg')
+            |
+            br
+            |
+            h2.feature-title Autism
+            |
+            p.feature-text
+              | Autism spectrum disorder (ASD), refers to a range of conditions characterized by challenges with social skills, repetitive behaviors, speech and nonverbal communication. The term &apos;spectrum&apos; reflects the wide variation in challenges and strengths possessed by each person with autism.
+          |
+          .col.s12.m4.center
+            img.feature-img(src='images/boy.svg')
+            |
+            br
+            |
+            h2.feature-title  Alexithymia
+            |
+            p.feature-text
+              | A prevalent constituent of the ASD, Alexithymia is a personality construct that reflects the inability to recogonise or describe emotions. Lack of emotional awareness combined with difficulty in distinguishing and appreciating emotions of others often leads to false impressions of apathy and concern.
+          |
+          .col.s12.m4.center
+            img.feature-img(src='images/ASCEND_cr.svg')
+            |
+            br
+            |
+            h2.feature-title  ASCEND
+            |
+            p.feature-text
+              | Our product provides a real-time interface to aid autistic people in their day-to-day communications via speech. The algorithm identifies emotion from audio irrespective of language and offers a suggestive reaction. Concerned doctors and teachers can also monitor with a background 24/7 reporting facility.
+    svg#curveDownColor(xmlns='http://www.w3.org/2000/svg', version='1.1', width='100%', height='80', viewBox='0 0 100 100', preserveAspectRatio='none')
+      path(d='M0 0 C 50 120 50 120 100 0 Z')
+    // Dashboard
+    .dashboard
+      .container.center
+        h2.feature-title  How ASCEND works
+        //
+          <p class="feature-text"> Access your secure dashboard online at any time. Track your results, view your personalised reports and get information on what things mean and how you can make changes .</p>
+          <br>
+      // <br>
+      .container
+        .row
+          .col.s12.m6.center
+            img.works-img(src='images/register.svg')
+          |
+          .col.s12.m6
+            p.works-num 01
+            |
+            p.works-title Sign up
+            |
+            p.works-text
+              | Download the ASCEND app from the Android Play Store, sign up, and make your account to begin your journey with us!
+        |
+        br
+        |
+        .row
+          .col.s12.m6
+            p.works-num(style='color: mediumpurple') 02
+            |
+            p.works-title Record
+            |
+            p.works-text
+              | You can record in real-time with instantaneous results or statically to access the recordings later. The app shows the emotion detected along with a suggested reaction.
+          |
+          .col.s12.m6.center
+            img.works-img(src='images/speaking.svg')
+        |
+        br
+        |
+        .row
+          .col.s12.m6.center
+            img.works-img(src='images/analyse.svg')
+          |
+          .col.s12.m6
+            p.works-num(style='color: #56D0E1') 03
+            |
+            p.works-title Analyse
+            |
+            p.works-text
+              | Visit the dashboard to view the analysis at a glance. Useful for doctors and teachers alike, the dashboard has it all!
+    br
+    svg#curveUpColor(xmlns='http://www.w3.org/2000/svg', version='1.1', width='100%', height='125', viewBox='0 0 100 100', preserveAspectRatio='none')
+      path(d='M0 100 C 20 0 50 0 100 100 Z')
+    // Testimonials
+    .testimonials
+      .testimonials-content
+        br
+        br
+        |
+        .testimonial-container
+          .dk-container
+            .cd-testimonials-wrapper.cd-container
+              h2(style='color: #fff;opacity: 0.8;') The Team
+              |
+              ul.cd-testimonials
+                li
+                  .testimonial-content
+                    p
+                      | Codeigniter, Visual Interpreter and a Staunch Crusader in the battle of peculiarities. An experienced web-developer who is a master of JS and RubyonRails. Loves puzzle solving and publc speaking. Best described as a sports keeda. A Computer Engineering major from Delhi Technological University.
+                    |
+                    .cd-author
+                      img.authimg(src='images/suvi.jpeg', alt="Suvigya's image")
+                      |
+                      ul.cd-author-info
+                        li
+                          b Suvigya Nijhawan
+                          br
+                          |
+                          p
+                          |
+                          |
+                          a(href='https://www.linkedin.com/in/suvigya-nijhawan-62330aa7/', target='_blank')
+                            img.link(src='images/link.svg', alt='LinkedIn Logo')
+                          |
+                          a(href='https://www.twitter.com/SuvigyaN/', target='_blank')
+                            img.twi(src='images/twi.svg', alt='Twitter Logo')
+                            |
+                            span.twname @SuvigyaN
+                        |
+                        li
+                |
+                li
+                  .testimonial-content
+                    p
+                      | Java Slayer, Number Player and a Seasoned Voyager in the sea of difficulties. A self-taught android developer who can create applications in the blink of an eye. Passionate about coding Currently a final year student pursuing Computer Engineering from Delhi Technological University.
+                    |
+                    .cd-author
+                      img.authimg(src='images/kar.jpg', alt="Suvigya's image")
+                      |
+                      ul.cd-author-info
+                        li
+                          b Kartik Bhutani
+                          br
+                          |
+                          p
+                          |
+                          |
+                          a(href='https://www.linkedin.com/in/kartikbhutani/', target='_blank')
+                            img.link(src='images/link.svg', alt='LinkedIn Logo')
+                          |
+                          a(href='https://www.twitter.com/kartik_bhutani/', target='_blank')
+                            img.twi(src='images/twi.svg', alt='Twitter Logo')
+                            |
+                            span.twname @kartik_bhutani
+                        |
+                        li
+                |
+                li
+                  .testimonial-content
+                    p
+                      | Python Enthusiast, Team Worker and Conflict Resolver in the inevitable path to success. The creative mind of the team. Always keeps his calm and thinks out of the box. An over-passionate football addict. Currently pursuing his bachelors in Computer Engineering from Delhi Technological University.
+                    |
+                    .cd-author
+                      img.authimg(src='images/sonu.JPG', alt="Suvigya's image")
+                      |
+                      ul.cd-author-info
+                        li
+                          b Sonam Tshering
+                          br
+                          |
+                          p
+                          |
+                          |
+                          a(href='https://www.linkedin.com/in//', target='_blank')
+                            img.link(src='images/link.svg', alt='LinkedIn Logo')
+                          |
+                          a(href='https://www.twitter.com/sonamtsh1328/', target='_blank')
+                            img.twi(src='images/twi.svg', alt='Twitter Logo')
+                            |
+                            span.twname @sonamtsh1328
+                        |
+                        li
+                |
+                li
+                  .testimonial-content
+                    p
+                      | Graphics Artist, UI-Designer and Resolute Motivator in the spiraling vortex of obstacles. The goto person and the content writer of the team. Loves reading to keep the mind sharp. An artistic mind, with a passion for coding. Currently pursuing Computer Engineering from Delhi Technological University.
+                    |
+                    .cd-author
+                      img.authimg(src='images/viha.jpg', alt="Suvigya's image")
+                      |
+                      ul.cd-author-info
+                        li
+                          b Viha Gupta
+                          br
+                          |
+                          p
+                          |
+                          |
+                          a(href='https://www.linkedin.com/in/viha-gupta-6986a2143/', target='_blank')
+                            img.link(src='images/link.svg', alt='LinkedIn Logo')
+                          |
+                          a(href='https://www.twitter.com/vihagupta95/', target='_blank')
+                            img.twi(src='images/twi.svg', alt='Twitter Logo')
+                            |
+                            span.twname @vihagupta95
+                        |
+                        li
+            // cd-testimonials
+    // Parallax-2
+    #parallax-2.parallax-container
+      .center(style='color: #fff; font-size: 35px;font-weight: 100;')
+        br
+        br
+        br
+        br
+        |         Explore the newer you!
+      |
+      .parallax
+        img(src='images/child2.jpeg')
+    // Contact
+    #contact-nav.contact-section(style='padding-top: 20px;')
+      br
+      |
+      h2.center(style='font-size: 35px; font-weight: 600')  LET&apos;S DISCUSS
+      |
+      center
+        p.underline
+          i.fa.fa-circle-thin(aria-hidden='true')
+      |
+      .container
+        .row
+          .col.s12.m4
+            img#message(src='images/message.svg')
+          |
+          .col.s12.m8
+            p.center(style='font-size:30px;font-weight: 100;')  Say Hello!
+            |
+            .row
+              form.col.s12(method='POST', action='http://formspree.io/teamkassvi@gmail.com')
+                .row
+                  .input-field.col.s6
+                    i.material-icons.prefix account_circle
+                    |
+                    input#icon_prefix.validate(name='reply_to', type='text')
+                    |
+                    label(for='icon_prefix') First Name
+                  |
+                  .input-field.col.s6
+                    i.material-icons.prefix mail
+                    |
+                    input#icon_telephone.validate(name='email', type='email')
+                    |
+                    label(for='icon_telephone') Email
+                |
+                .row
+                  .input-field.col.s12
+                    i.material-icons.prefix mode_edit
+                    |
+                    textarea#icon_prefix2.materialize-textarea(name='message')
+                    |
+                    label(for='icon_prefix2') Message
+                |
+                center
+                  button.btn(type='submit') Send
+        |
+        br
+    // Parallax Facts anf Figures
+    // Footer
+    footer.page-footer
+      .container
+        .row
+          .col.l6.s12
+            h5.white-text Connect
+            |
+            p.grey-text.text-lighten-4
+              | For Further Enquiries,
+              br
+              |         Please Contact :
+              br
+              |
+              a(href='mailto:teamkassvi@gmail.com') teamkassvi@gmail.com
+              |
+              br
+              |
+              a(href='mailto:suvigyanijhawan@dtu.ac.in') suvigyanijhawan@dtu.ac.in
+          |
+          .col.l4.offset-l2.s12
+            h5.white-text Contact Us
+            |
+            h6.white-text TEAM KASSVI
+            |
+            ul
+              li
+                | Suvigya Nijhawan
+                a.link-ul.grey-text.text-lighten-3(href='mob:+91-9971257549', target='_blank') +91-9971257549
+              |
+              li
+                | Kartik Butani
+                a.link-ul.grey-text.text-lighten-3(href='mob:+91-9560654335', target='_blank') +91-9560654335
+              |
+              li
+                | Sonam Tshering
+                a.link-ul.grey-text.text-lighten-3(href='mob:+91-9582099228', target='_blank') +91-9582099228
+              |
+              li
+                | Viha Gupta
+                a.link-ul.grey-text.text-lighten-3(href='mob:+91-+91-8744947608', target='_blank') +91-8744947608
+      |
+      .footer-copyright
+        .container
+          | &copy; 2017 All Rights Reserved - TEAM KASSVI
+          // <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    // Modal Trigger
+    #log2.modal.z-depth-1.grey.lighten-4.row(style='padding:20px 10px')
+      .row
+        #leftlogin.col.s7
+          .row
+            .col.s12
+              h5.indigo-text
+                a#show_login(href='#!') Login
+                |  /
+                a#show_signup(href='#!') Sign up
+            |
+            form.login(method="POST" action='/login')
+              .input-field.col.s12
+                input#email.validate(type='email', name='email')
+                |
+                label(for='email') Enter your email
+              |
+              .input-field.col.s12
+                input#password.validate(type='password', name='password')
+                |
+                label(for='password') Enter your password
+              |
+              label(style='float: right;')
+                a.pink-text(href='#!')
+                  b Forgot Password?
+              |
+              br
+              br
+              |
+              button#login_btn.col.s12.btn.waves-effect.indigo(type='submit', name='btn_login') Login
+            |
+            form.signup(style='display: none;' method="POST" action='/signup')
+              .input-field.col.s12
+                input#name-su.validate(type='text', name='name-su')
+                |
+                label(for='name-su') Enter your name
+              |
+              .input-field.col.s12
+                input#email-su.validate(type='email', name='email-su')
+                |
+                label(for='email-su') Enter your email
+              |
+              .input-field.col.s12
+                input#password-su.validate(type='password', name='password-su')
+                |
+                label(for='password-su') Enter your password
+              |
+              br
+              br
+              |
+              button#signup_btn.col.s12.btn.waves-effect.indigo(type='submit', name='btn_signup') Sign Up
+        |
+        .col.s5.row
+          .col.s12.center-align
+            h5.indigo-text Login Using
+          |
+          .col.s12 &nbsp;
+          |
+          .col.s12 &nbsp;
+          |
+          button.col.s8.offset-s2.center-align.btn.waves-effect.indigo(type='submit', name='btn_login') Facebook
+          |
+          .col.s12.center-align &nbsp;
+          |
+          button.col.s8.offset-s2.btn.waves-effect.red.darken-3(type='submit', name='btn_login') Google
+    // Jquery
+    script(type='text/javascript', src='https://code.jquery.com/jquery-3.2.1.min.js')
+    // Materialize js
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.1/jquery.flexslider.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/masonry/4.1.0/masonry.pkgd.min.js')
+    script(type='text/javascript').
+      $('.modal').modal();
+      $('.modal').tabs('select_tab','log-tab');
+      $('.parallax').parallax();
+    script(type='text/javascript').
+      jQuery(document).ready(function($) {
+      // smooth scroll
+      $(document).on('click', 'a[href^="#"]', function (event) {
+      event.preventDefault();
+      $('html, body').animate({
+      scrollTop: $($.attr(this, 'href')).offset().top
+      }, 500);
+      });
+      //create the slider
+      $(".cd-testimonials-wrapper").flexslider({
+      selector: ".cd-testimonials > li",
+      animation: "slide",
+      controlNav: true,
+      slideshow: false,
+      smoothHeight: true,
+      start: function() {
+      $(".cd-testimonials")
+      .children("li")
+      .css({
+      opacity: 1,
+      position: "relative"
+      });
+      }
+      });
+      //- $("#login_btn").click(function () {
+      //- //console.log(document.getElementById("email").value);
+      //- $.ajax({
+      //- url: '/signin',
+      //- type: 'POST',
+      //- contentType: 'application/json',
+      //- data: JSON.stringify({
+      //- email:document.getElementById("email").value,
+      //- password:document.getElementById("password").value
+      //- }),
+      //- error: function(e) {
+      //- console.log("Error: ",e);
+      //- },
+      //- success: function(data) {
+      //- console.log(data);
+      //- window.localStorage.setItem("id",data.user._id);
+      //- window.location = "/app/" + data.user._id;
+      //- }
+      //- });
+      //- });
+      //- $("#signup_btn").click(function () {
+      //- console.log("name", document.getElementById("name-su").value);
+      //- console.log("email", document.getElementById("email-su").value);
+      //- $.ajax({
+      //- url: '/signup',
+      //- type: 'POST',
+      //- contentType: 'application/json',
+      //- data: JSON.stringify({
+      //- name:document.getElementById("name-su").value,
+      //- email:document.getElementById("email-su").value,
+      //- password:document.getElementById("password-su").value
+      //- }),
+      //- error: function(e) {
+      //- console.log("Error: ",e);
+      //- },
+      //- success: function(data) {
+      //- console.log(data);
+      //- window.location = "/app/" + data.user._id;
+      //- }
+      //- });
+      //- });
+      //- $("#show_signup").click(function () {
+      $(this).css("color","purple");
+      $("#show_login").css("color","blue");
+      $(".login").css("display","none");
+      $(".signup").css("display","block");
+      });
+      $("#show_login").click(function () {
+      $(this).css("color","purple");
+      $("#show_signup").css("color","blue");
+      $(".login").css("display","block");
+      $(".signup").css("display","none");
+      });
+      $("#app-btn").click(function() {
+      if (window.localStorage.getItem("id")){
+      window.location = "/app/" + window.localStorage.getItem("id");
+      }else{
+      $('#log2').modal('open');
+      }
+      });
+      });

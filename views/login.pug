@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .inner
+    form.form(action="/login" method="POST")
+      h2 Login
+      label(for="email") Email Address
+      input(type="email" name="email")
+      label(for="password") Password
+      input(type="password" name="password")
+      input.button(type="submit" value="Log In →")
+    form.form(action="/account/forgot" method="POST")
+      h3 Forgot Password
+      label(for="email") Email
+      input(type="text" name="email")
+      input.button(type="submit" value="Reset Password")

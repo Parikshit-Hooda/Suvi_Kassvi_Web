@@ -1,0 +1,49 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Team Kassvi
+    // Fonts
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Questrial', rel='stylesheet')
+    // Materialize css
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(rel='stylesheet', href='css/navbar.css')
+    link(rel='stylesheet', href='css/landing.css')
+    //- link(rel='stylesheet', href='css/style.css')
+    link(rel='stylesheet', href='css/testimonials.css')
+    //- link(rel='stylesheet', href='css/recordbutton.css')
+
+      
+    <!-- Compiled and minified JavaScript -->
+    script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js")
+  body
+    // Navbar
+    .navbar-fixed
+      nav
+        .nav-wrapper
+          a.brand-logo(href='#header-sec')
+            img.kaslog(src='images/T.jpg', alt='Team Kassvi Logo')
+          |
+          ul#nav-mobile.right.hide-on-med-and-down
+            li
+              a.no-btn(href='#header-sec') Home
+            li
+              a.no-btn(href='#features') Features
+            li
+              a.no-btn(href='#contact-nav') Contact
+            li
+              a.no-btn(href='dashboard/index.html') Dashboard
+            li
+              a#app-btn.no-btn(href='/analyser') Analyser
+            li
+              a#app-btn.no-btn(href='app-page/index.html') Mobile App
+            li
+              a.waves-effect.btn(href='/login') Login
+            li
+              a.waves-effect.btn(href='/signup') Register
+
+    block content
+      p this is default for header pug
