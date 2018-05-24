@@ -53,7 +53,7 @@ mongoose.connection.on('error', (err) => {
 var routes = require('./routes/index.js');
 
 // home page
-app.get('/', routes.index); // calls index function in /routes/index.js
+app.get('/', routes); // calls index function in /routes/index.js
 
 // //add new food routes
 // app.get('/add', routes.addFoodForm); //display form to add a new food product
