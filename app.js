@@ -31,12 +31,9 @@ var app = express();
 app.set('port', process.env.PORT || 5000);
 
 //  templates directory to 'views'
-app.set('views', __dirname + '/views');
-
-// setup template engine - we're using Hogan-Express
-app.set('view engine', 'html');
-app.set('layout', 'layout');
-app.engine('html', require('hogan-express')); // https://github.com/vol4ok/hogan-express
+// view engine setup
+app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our pug files
+app.set('view engine', 'pug'); // we use the engine pug, mustache or EJS work great too
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
