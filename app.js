@@ -3,6 +3,15 @@
  */
 
 var express = require('express');
+const session = require('express-session');
+const logger = require('morgan');
+const MongoStore = require('connect-mongo')(session);
+const cookieParser = require('cookie-parser');
+const passport = require('passport');
+const promisify = require('es6-promisify');
+const flash = require('connect-flash');
+const expressValidator = require('express-validator');
+
 var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
