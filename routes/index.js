@@ -5,3 +5,6 @@
  */
 
 var Food = require("../models/model.js"); //our db model
+
+
+module.exports = router;
