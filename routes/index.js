@@ -9,10 +9,15 @@ var router = express.Router();
 
 var Food = require("../models/model.js"); //our db model
 
-exports.index = (req, res) => {
+router.get('/', function(req, res) {
+    res.send('/ router hit ');
+});
 
-    res.send('/ route hit ');
-};
+
+// exports.index = (req, res) => {
+
+//     res.send('/ route hit ');
+// };
 
 
 module.exports = router;
