@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -25,7 +24,7 @@ app.set('views', __dirname + '/views');
 
 // setup template engine - we're using Hogan-Express
 app.set('view engine', 'html');
-app.set('layout','layout');
+app.set('layout', 'layout');
 app.engine('html', require('hogan-express')); // https://github.com/vol4ok/hogan-express
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -35,7 +34,7 @@ app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // connecting to database
-app.db = mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI);
 console.log("connected to database");
 
 // ROUTES, logic is in routes/index.js
@@ -46,8 +45,8 @@ var routes = require('./routes/index.js');
 app.get('/', routes.index); // calls index function in /routes/index.js
 
 //add new food routes
-app.get('/add',routes.addFoodForm); //display form to add a new food product
-app.post('/add',routes.addFoodToDb); //form POST submits here
+app.get('/add', routes.addFoodForm); //display form to add a new food product
+app.post('/add', routes.addFoodToDb); //form POST submits here
 
 // display a single food item
 // for example '/food/chunky-peanut-butter'
@@ -64,10 +63,10 @@ app.get('/food/:slug/delete', routes.deleteFood);
 app.get('/food/:slug/upvote', routes.incrementUpvote);
 
 // Make the data into an API - JSON Data routes
-app.get('/api/food',routes.allFoodApi);
+app.get('/api/food', routes.allFoodApi);
 app.get('/api/food/:slug', routes.oneFoodApi);
 
 // create NodeJS HTTP server using 'app'
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+http.createServer(app).listen(app.get('port'), function() {
+    console.log("Express server listening on port " + app.get('port'));
 });
