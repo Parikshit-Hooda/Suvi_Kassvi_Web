@@ -7,6 +7,8 @@ var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+require('dotenv').config({ path: 'variables.env' });
+
 var favicon = require('serve-favicon');
 var methodOverride = require('method-override');
 
