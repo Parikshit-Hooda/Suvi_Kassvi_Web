@@ -1,7 +1,3 @@
-/**
- * Module dependencies.
- */
-
 const express = require('express');
 const session = require('express-session');
 const logger = require('morgan');
@@ -18,10 +14,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config({ path: 'variables.env' });
-
 var favicon = require('serve-favicon');
 var methodOverride = require('method-override');
-
 
 // connecting to database
 mongoose.connect(process.env.DATABASE, { useMongoClient: true });
@@ -33,6 +27,8 @@ mongoose.connection.on('error', (err) => {
 // ROUTES, logic is in routes/index.js
 
 var routes = require('./routes/index.js');
+var userRoutes = require('./routes/users.js');
+var emotionRoutes = require('./routes/emotions.js');
 
 
 // the ExpressJS App
@@ -42,7 +38,7 @@ var app = express();
 // and other expressjs settings for the web server.
 
 // server port number
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 3000);
 
 //  templates directory to 'views'
 // view engine setup
@@ -113,6 +109,8 @@ app.use(errorHandlers.productionErrors);
 
 // home page
 app.use('/', routes); // calls index function in /routes/index.js
+app.use('/users', userRoutes);
+app.use('/emotions', emotionRoutes);
 
 // create NodeJS HTTP server using 'app'
 http.createServer(app).listen(app.get('port'), function() {
