@@ -9,10 +9,6 @@ const path = require('path');
 const fs = require('fs');
 // const nrc = require('node-run-cmd');
 
-// const Analyzer = require('../handlers/analyzer-v3');
-//const audioConvertAndUpload = require('../handlers/audioConvertAndUpload');
-const nrc = require('../handlers/nrc');
-
 const multerOptions = {
     storage: multer.diskStorage({
         destination: function(req, file, callback) {
@@ -67,12 +63,6 @@ exports.uploadFileSubmit = (req, res) => {
     // //   console.log('deleted ' + deleted);
     // // });
     // });
-
-    //   //await audioConvertAndUpload.wavConvert(req.file.filename, filename);
-    //   del([`${req.file.path}`], function(err, deleted) {
-    //   if (err) console.log('error');
-    //   console.log('deleted ' + deleted);
-    // });
     res.redirect('/analyser');
 };
 
@@ -84,20 +74,17 @@ exports.recordFileConvert = (req, res) => {
     console.log('record file convert UPLOAD ' + req.file.filename);
 };
 
-// exports.analyseAudio = (req,res) =>{
-//   var analyzer = new Analyzer(process.env.BEYOND_VERBAL_API);
-//   analyzer.analyze(fs.createReadStream(`public/audioUploads/uploadFile-1518693986224.wav`),function(err,analysis){
-//     if(err) console.log(err);
-//     console.log(analysis);
-// });
-// };
-
 exports.getDashboard = (req, res) => {
-    return res.send('/emotions/dashboard');
+    res.sendFile('../public/home.html', { root: __dirname });
 
 };
 
 exports.analyser = (req, res) => {
     res.send('post /emotions/analyser');
+    console.log(req.body);
 
 };
+
+
+
+// exports.

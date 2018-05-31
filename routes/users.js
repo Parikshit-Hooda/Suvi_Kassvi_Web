@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const userController = require('../controllers/userController');
-const educationController = require('../controllers/educationController');
-const agricultureController = require('../controllers/agricultureController');
+const emotionController = require('../controllers/emotionController');
 const authController = require('../controllers/authController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
@@ -22,13 +21,13 @@ router.post('/register',
 
 router.get('/logout', authController.logout);
 
-router.get('/account', authController.isLoggedIn, userController.account);
+// router.get('/account', authController.isLoggedIn, userController.account);
 router.post('/account', catchErrors(userController.updateAccount));
-router.post('/account/forgot', catchErrors(authController.forgot)); // needs to be worked out
-router.get('/account/reset/:token', catchErrors(authController.reset));
-router.post('/account/reset/:token',
-    authController.confirmedPasswords,
-    catchErrors(authController.update)
-);
+// router.post('/account/forgot', catchErrors(authController.forgot)); // needs to be worked out
+// router.get('/account/reset/:token', catchErrors(authController.reset));
+// router.post('/account/reset/:token',
+// authController.confirmedPasswords,
+// catchErrors(authController.update)
+// );
 
 module.exports = router;

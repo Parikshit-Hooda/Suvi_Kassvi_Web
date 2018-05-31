@@ -1,320 +1,331 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-   <head>
-      <meta charset="utf-8" />
-      <title>Voice Analyser</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-      <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-      <style type='text/css'>
-         label.error { color: red; font-weight: normal; }
-         ul { list-style: none; }
-         #recordingslist audio { display: block; margin-bottom: 10px; }
-      </style>
-   </head>
-   <body>
-      <div class="container">
-         <h1>Voice Analyser <button id="logout" class="btn">Sign Out</button></h1>
-         <hr />
-         <form id="form" class="form-horizontal">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Voice Analyser</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <style type='text/css'>
+        label.error {
+            color: red;
+            font-weight: normal;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        #recordingslist audio {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Voice Analyser <button id="logout" class="btn">Sign Out</button></h1>
+        <hr />
+        <form id="form" class="form-horizontal" type="multipart/form-data" action="/emotions/analyse" method="POST">
             <div class="form-group">
-               <label for="input_file" class="col-sm-2 control-label">Input File</label>
-               <div class="col-sm-10">
-                  <input type="file" class="form-control" id="input_file" required>
-               </div>
+                <label for="input_file" class="col-sm-2 control-label">Input File</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" id="input_file" required>
+                </div>
             </div>
             <div class="form-group">
-               <div class="col-sm-offset-2 col-sm-10">
-                  <button id="submit" type="submit" class="btn btn-default">Start</button>
-               </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button id="submit" type="submit" class="btn btn-default">Start</button>
+                </div>
             </div>
-         </form>
-         <div class="panel panel-default">
+        </form>
+        <div class="panel panel-default">
             <div class="panel-heading">Results</div>
             <div class="panel-body">
-               <ul id="result"></ul>
+                <ul id="result"></ul>
             </div>
-         </div>
-      </div>
-      <div class="container">
-      <h3>upload audio file of any type(expected:wav,mp3,ogg)</h3>
-      <div class="form-horizonatal">
-         <form method="POST" action="/analyser/uploadFileSubmit" enctype="multipart/form-data">
-            <label for="uploadFile">Upload Audio File</label>
-            <input name="uploadFile" type="file" id="uploadFile" accept="audio/wav, audio/mp3, audio/ogg"/>
-            <button class="btn waves-effect waves-light" type="submit" name="uploadFileSubmit">Submit</button>
-         </form>
-      </div>
+        </div>
+    </div>
+    <div class="container">
+        <h3>upload audio file of any type(expected:wav,mp3,ogg)</h3>
+        <div class="form-horizonatal">
+            <form method="POST" action="/analyser/uploadFileSubmit" enctype="multipart/form-data">
+                <label for="uploadFile">Upload Audio File</label>
+                <input name="uploadFile" type="file" id="uploadFile" accept="audio/wav, audio/mp3, audio/ogg" />
+                <button class="btn waves-effect waves-light" type="submit" name="uploadFileSubmit">Submit</button>
+            </form>
+        </div>
     </div>
     <form method="POST" action="/analyser/analyse">
-    <button class="btn waves-effect waves-light" type="submit" name="analyse">analyse</button>
-</form>
-      <div class="container">
-         <h1>Recorder.js simple WAV export example</h1>
-         <p>Make sure you are using a recent version of Google Chrome.</p>
-         <p>Also before you enable microphone input either plug in headphones or turn the volume down if you want to avoid ear splitting feedback!</p>
-         <button onclick="startRecording(this);">record</button>
-         <button onclick="stopRecording(this);" disabled>stop</button>
-         <h2>Recordings</h2>
-         <ul id="recordingslist"></ul>
-      </div>
-      <div class="container">
-      <h2>Log</h2>
-      <pre id="log"></pre>
+        <button class="btn waves-effect waves-light" type="submit" name="analyse">analyse</button>
+    </form>
+    <div class="container">
+        <h1>Recorder.js simple WAV export example</h1>
+        <p>Make sure you are using a recent version of Google Chrome.</p>
+        <p>Also before you enable microphone input either plug in headphones or turn the volume down if you want to avoid ear splitting feedback!</p>
+        <button onclick="startRecording(this);">record</button>
+        <button onclick="stopRecording(this);" disabled>stop</button>
+        <h2>Recordings</h2>
+        <ul id="recordingslist"></ul>
     </div>
-      <script src="recorder.js"></script>
-      <script>
-         var recBlob;
+    <div class="container">
+        <h2>Log</h2>
+        <pre id="log"></pre>
+    </div>
+    <script src="recorder.js"></script>
+    <script>
+        var recBlob;
 
-         var navigator = window.navigator;
-         navigator.getUserMedia = (
-         navigator.getUserMedia ||
-         navigator.webkitGetUserMedia ||
-         navigator.mozGetUserMedia ||
-         navigator.msGetUserMedia
-         );
+        var navigator = window.navigator;
+        navigator.getUserMedia = (
+            navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia
+        );
 
-         var Context = window.AudioContext || window.webkitAudioContext;
-         var audio_context = new Context();
-         function __log(e, data) {
-         log.innerHTML += "\n" + e + " " + (data || '');
-         }
-         var recorder;
+        var Context = window.AudioContext || window.webkitAudioContext;
+        var audio_context = new Context();
 
-         function startUserMedia(stream) {
-         var input = audio_context.createMediaStreamSource(stream);
-         __log('Media stream created.');
+        function __log(e, data) {
+            log.innerHTML += "\n" + e + " " + (data || '');
+        }
+        var recorder;
 
-         // Uncomment if you want the audio to feedback directly
-         //input.connect(audio_context.destination);
-         //__log('Input connected to audio context destination.');
+        function startUserMedia(stream) {
+            var input = audio_context.createMediaStreamSource(stream);
+            __log('Media stream created.');
 
-         recorder = new Recorder(input);
-         __log('Recorder initialised.');
-         }
+            // Uncomment if you want the audio to feedback directly
+            //input.connect(audio_context.destination);
+            //__log('Input connected to audio context destination.');
 
-         function startRecording(button) {
-         recorder && recorder.record();
-         button.disabled = true;
-         button.nextElementSibling.disabled = false;
-         __log('Recording...');
-         }
+            recorder = new Recorder(input);
+            __log('Recorder initialised.');
+        }
 
-         function stopRecording(button) {
-         recorder && recorder.stop();
-         button.disabled = true;
-         button.previousElementSibling.disabled = false;
-         __log('Stopped recording.');
-         // create WAV download link using audio data blob
-         createDownloadLink();
-         // upload(blob);
-         recorder.clear();
-         }
+        function startRecording(button) {
+            recorder && recorder.record();
+            button.disabled = true;
+            button.nextElementSibling.disabled = false;
+            __log('Recording...');
+        }
 
-         function createDownloadLink() {
-         recorder && recorder.exportWAV(function(blob) {
-         var url = URL.createObjectURL(blob);
-         console.log(blob.size);
-         console.log(blob);
-         var li = document.createElement('li');
-         var au = document.createElement('audio');
-         var hf = document.createElement('a');
+        function stopRecording(button) {
+            recorder && recorder.stop();
+            button.disabled = true;
+            button.previousElementSibling.disabled = false;
+            __log('Stopped recording.');
+            // create WAV download link using audio data blob
+            createDownloadLink();
+            // upload(blob);
+            recorder.clear();
+        }
 
-         au.controls = true;
-         au.src = url;
-         hf.href = url;
-         hf.id="rec";
-         hf.download = new Date().toISOString() + '.wav';
-         console.log(hf.download);
-         hf.innerHTML = hf.download;
-         li.appendChild(au);
-         li.appendChild(hf);
-         recordingslist.appendChild(li);
-         // code below to send recorded file to server
-         var fd = new FormData();
-          fd.append('uploadFile', blob, `${hf.download}.wav`);
+        function createDownloadLink() {
+            recorder && recorder.exportWAV(function(blob) {
+                var url = URL.createObjectURL(blob);
+                console.log(blob.size);
+                console.log(blob);
+                var li = document.createElement('li');
+                var au = document.createElement('audio');
+                var hf = document.createElement('a');
 
-          fetch('/analyser/recordFileConvert',
-          {
-              method: 'post',
-              body: fd
-          });
-          //code above to send recorded file to get stored in server for optional further analysis
-         recBlob = blob;
-         });
-         }
+                au.controls = true;
+                au.src = url;
+                hf.href = url;
+                hf.id = "rec";
+                hf.download = new Date().toISOString() + '.wav';
+                console.log(hf.download);
+                hf.innerHTML = hf.download;
+                li.appendChild(au);
+                li.appendChild(hf);
+                recordingslist.appendChild(li);
+                // code below to send recorded file to server
+                var fd = new FormData();
+                fd.append('uploadFile', blob, `${hf.download}.wav`);
 
-         window.onload = function init() {
-         try {
-         // webkit shim
-         window.AudioContext = window.AudioContext || window.webkitAudioContext;
-         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-         window.URL = window.URL || window.webkitURL;
+                fetch('/analyser/recordFileConvert', {
+                    method: 'post',
+                    body: fd
+                });
+                //code above to send recorded file to get stored in server for optional further analysis
+                recBlob = blob;
+            });
+        }
 
-         audio_context = new AudioContext;
-         __log('Audio context set up.');
-         __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
-         } catch (e) {
-         alert('No web audio support in this browser!');
-         }
+        window.onload = function init() {
+            try {
+                // webkit shim
+                window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+                window.URL = window.URL || window.webkitURL;
 
-         navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-         __log('No live audio input: ' + e);
-         });
-         };
-      </script>
-      <script type="text/javascript">
-         if (window.File && window.FileReader && window.FileList && window.Blob)
-         {
-             console.log("This browser confirm window.File && window.FileReader !!!");
-         }
-         else
-         {
-             alert('The File APIs are not fully supported in this browser.');
-         }
+                audio_context = new AudioContext;
+                __log('Audio context set up.');
+                __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+            } catch (e) {
+                alert('No web audio support in this browser!');
+            }
 
-         options = {
-             url: {
-                 tokenUrl: 'https://token.beyondverbal.com/token',
-                 serverUrl: 'https://apiv3.beyondverbal.com/v3/recording/'
+            navigator.getUserMedia({
+                audio: true
+            }, startUserMedia, function(e) {
+                __log('No live audio input: ' + e);
+            });
+        };
+    </script>
+    <script type="text/javascript">
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+            console.log("This browser confirm window.File && window.FileReader !!!");
+        } else {
+            alert('The File APIs are not fully supported in this browser.');
+        }
 
-             },
-             apiKey: "dd2dec2e-95e4-4412-9d88-c385c9a574a4",
-             token: ''
+        options = {
+            url: {
+                tokenUrl: 'https://token.beyondverbal.com/token',
+                serverUrl: 'https://apiv3.beyondverbal.com/v3/recording/'
 
-         };
+            },
+            apiKey: "gibberish",
+            token: ''
 
-         $(function ()
-         {
-             $("#form").validate({
-                 submitHandler: function (form)
-                 {
-                     $("#submit").attr("disabled", true).text("Analyze...");
-                     $('#result').html('');
+        };
 
-                     authenticate()
-                         .error(function (jqXHR, textStatus, errorThrown)
-                         {
-                             Show(JSON.stringify(jqXHR) + errorThrown);
-                         })
-                        .success(function (data)
-                        {
+        $(function() {
+            $("#form").validate({
+                submitHandler: function(form) {
+                    $("#submit").attr("disabled", true).text("Analyze...");
+                    $('#result').html('');
+
+                    authenticate()
+                        .error(function(jqXHR, textStatus, errorThrown) {
+                            Show(JSON.stringify(jqXHR) + errorThrown);
+                        })
+                        .success(function(data) {
                             console.log('sucess::' + JSON.stringify(data));
                             var token = JSON.parse(data);
                             options.token = token.access_token;
                             uploadFile(form[0].files[0]);
                             //uploadFile(recBlob);
                         });
-                 }
-             });
+                }
+            });
 
-         });
+        });
 
-         function uploadFile(file)
-         {
-             if (typeof FileReader !== "undefined")
-             {
-                 var reader = new FileReader();
-                 reader.onload = function (e)
-                 {
-                     analyzeFile("dd2dec2e-95e4-4412-9d88-c385c9a574a4", e.target.result)
-                         .done(function (res)
-                         {
-                             Show(res);
-                             $("#submit").attr("disabled", false).text("Start");
-                         })
-                         .fail(function (err)
-                         {
-                             Show(err);
-                             $("#submit").attr("disabled", false).text("Start");
-                         });
-                 };
-                 reader.readAsArrayBuffer(file);
-                 // console.log(reader.result);
+        function uploadFile(file) {
+            if (typeof FileReader !== "undefined") {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    analyzeFile("gibberish", e.target.result)
+                        .done(function(res) {
+                            Show(res);
+                            $("#submit").attr("disabled", false).text("Start");
+                        })
+                        .fail(function(err) {
+                            Show(err);
+                            $("#submit").attr("disabled", false).text("Start");
+                        });
+                };
+                reader.readAsArrayBuffer(file);
+                // console.log(reader.result);
 
-             }
-         }
+            }
+        }
 
-         function authenticate()
-         {
-             console.log('url token:' + options.url.tokenUrl);
-             options.apiKey = "dd2dec2e-95e4-4412-9d88-c385c9a574a4";
-             return $.ajax({
-                 url: options.url.tokenUrl,
-                 type: "POST",
-                 dataType: 'text',
-                 contentType: 'application/x-www-form-urlencoded',
-                 data: {
-                     grant_type: "client_credentials",
-                     apiKey: options.apiKey
-                 }
-             });
+        function authenticate() {
+            console.log('url token:' + options.url.tokenUrl);
+            options.apiKey = "gibberish";
+            return $.ajax({
+                url: options.url.tokenUrl,
+                type: "POST",
+                dataType: 'text',
+                contentType: 'application/x-www-form-urlencoded',
+                data: {
+                    grant_type: "client_credentials",
+                    apiKey: options.apiKey
+                }
+            });
 
-         }
+        }
 
-         function analyzeFile(apiKey, content, interval)
-         {
-             var dfd = $.Deferred();
-             var startUrl = options.url.serverUrl+'start';
+        function analyzeFile(apiKey, content, interval) {
+            var dfd = $.Deferred();
+            var startUrl = options.url.serverUrl + 'start';
 
-             //console.log('url::' + startUrl + ' token:' + options.token);
+            //console.log('url::' + startUrl + ' token:' + options.token);
 
-             $.ajax({
-                 url: startUrl,
-                 headers: { 'Authorization': "Bearer " + options.token },
-                 type: "POST",
-                 cache: false,
-                 data: JSON.stringify({ dataFormat: { type: "WAV" } }),
-                 contentType: 'application/x-www-form-urlencoded',
-                 dataType: 'text'
-             })
-             .then(function (data)
-             {
-                 Show(data);
+            $.ajax({
+                    url: startUrl,
+                    headers: {
+                        'Authorization': "Bearer " + options.token
+                    },
+                    type: "POST",
+                    cache: false,
+                    data: JSON.stringify({
+                        dataFormat: {
+                            type: "WAV"
+                        }
+                    }),
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: 'text'
+                })
+                .then(function(data) {
+                    Show(data);
 
-                 var recID = data.recordingId ? data.recordingId : JSON.parse(data).recordingId;
-                 //console.log('recid::' + recID);
-                 var upStreamUrl = options.url.serverUrl + recID;
-                 //post content for analysis
-                 $.ajax({
-                     url: upStreamUrl,
-                     headers: { 'Authorization': "Bearer " + options.token },
-                     data: content,
-                     contentType: false,
-                     processData: false,
-                     cache: false,
-                     dataType: 'text',
-                     type: "POST"
-                 })
-                 .then(dfd.resolve, dfd.reject);
+                    var recID = data.recordingId ? data.recordingId : JSON.parse(data).recordingId;
+                    //console.log('recid::' + recID);
+                    var upStreamUrl = options.url.serverUrl + recID;
+                    //post content for analysis
+                    $.ajax({
+                            url: upStreamUrl,
+                            headers: {
+                                'Authorization': "Bearer " + options.token
+                            },
+                            data: content,
+                            contentType: false,
+                            processData: false,
+                            cache: false,
+                            dataType: 'text',
+                            type: "POST"
+                        })
+                        .then(dfd.resolve, dfd.reject);
 
-             }, dfd.reject);
+                }, dfd.reject);
 
-             return dfd.promise().always(function (){});
-         }
-         function Show(json)
-         {
-                let parsedJson = JSON.parse(json);
-             console.log(parsedJson);
-             if (parsedJson.result !== undefined){
+            return dfd.promise().always(function() {});
+        }
 
-                 if(parsedJson.result.analysisSegments[0] === undefined){
-                     $('#result').append("Could not parse the audio.")
+        function Show(json) {
+            let parsedJson = JSON.parse(json);
+            console.log(parsedJson);
+            if (parsedJson.result !== undefined) {
 
-                 }else{
-             $('#result').append(parsedJson.result.analysisSegments[0].analysis.Mood.Composite.Primary.Phrase); console.log(parsedJson.result.analysisSegments[0].analysis.Mood.Composite.Primary.Phrase);
-                 }
-             }
-         }
-      </script>
-      <script type="text/javascript">
-         $("#logout").click(function (){
-            if(window.localStorage.getItem("id")){
+                if (parsedJson.result.analysisSegments[0] === undefined) {
+                    $('#result').append("Could not parse the audio.")
+
+                } else {
+                    $('#result').append(parsedJson.result.analysisSegments[0].analysis.Mood.Composite.Primary.Phrase);
+                    console.log(parsedJson.result.analysisSegments[0].analysis.Mood.Composite.Primary.Phrase);
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $("#logout").click(function() {
+            if (window.localStorage.getItem("id")) {
                 window.localStorage.removeItem("id");
             }
-                window.location = "http://www.teamakassvi.tech";
-         });
-      </script>
-   </body>
+            window.location = "http://www.teamakassvi.tech";
+
+
+        });
+    </script>
+</body>
+
 </html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="./js/materialize.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+    <script src="./js/script1.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.dropdown-trigger').dropdown();
+        });
+    </script>
+    <link rel="stylesheet" href="./css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </link>
+</head>
+
+<body class="blue lighten-5">
+
+    <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a href="#!">three</a></li>
+        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Team Kassvi</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#!">About us</a></li>
+                <li><a href="#!">Contact Us</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <nav>
+        <div class="nav-wrapper">
+            <form>
+                <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Modal Trigger -->
+    <div class="container">
+        <section id="anaysis_section">
+            <div class="row">
+                <div class="col s8 l6 m6" id="analysis_input">
+                    <h3 id="analysisinputheader">Input Audio</h3>
+                    <form id="inputaudioform" class="" action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                            <a id="audiofilesubmit" class="waves-effect waves-light btn" onclick="audioFileSubmit(this)">Submit</a> </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <h2>Log</h2>
+            <pre id="log"></pre>
+
+
+            <div class="" id="analysis_record">
+                <h3 id="analysisrecordheader">Record and Analyse</h3>
+                <button class="waves-effect waves-light btn" onclick="startRecording(this);">record</button>
+                <button class="waves-effect waves-light btn" onclick="stopRecording(this);" disabled>stop</button>
+            </div>
+            <div class="" id="analysis_realtime">
+                <h3 id="analysisrealtimedheader">Realtime - Record and Analyse</h3>
+                <button class="waves-effect waves-light btn" onclick="startRecording(this);">record</button>
+                <button class="waves-effect waves-light btn" onclick="stopRecording(this);" disabled>stop</button>
+            </div>
+        </section>
+
+        <section id="recorded">
+
+            <h3 id="recorded_section">Recorded audios</h3>
+            <ul id="recordingsUL">
+                <li class="recordingslist">
+
+                    <div id="recordeddiv" class="yellow lighten-2">
+                        <h5 id="recordedheader">Audio title</h5>
+                        <span id="recordedspan">Date created</span>
+                        <br>
+                        <a id="playanchor" href="#!"><i class="small material-icons">play_arrow</i></a>
+                        <br>
+                        <span id="recordedanalysiscontent">recorded analysis content </span>
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Team Kassvi</h5>
+                    <p class="grey-text text-lighten-4">An emotion recognition project to help autistic children.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Docs</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Team</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 Team Kassvi
+                <a class="grey-text text-lighten-4 right" href="#!">Terms and Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- js scripts -->
+    <script src="./js/recorder.js"></script>
+
+
+</body>
+
+</html>

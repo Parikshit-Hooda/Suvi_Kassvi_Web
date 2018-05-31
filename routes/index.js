@@ -10,7 +10,13 @@ var router = express.Router();
 var Food = require("../models/model.js"); //our db model
 
 router.get('/', function(req, res) {
-    res.send('/ router hit ');
+    res.sendFile('home.html', { root: './public' });
+});
+
+router.post('/', function(req, res) {
+
+    // res.send('post body');
+    console.log(req.body);
 });
 
 
