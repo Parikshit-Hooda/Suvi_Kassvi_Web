@@ -89,7 +89,7 @@ function createDownloadLink() {
         var fd = new FormData();
         $.ajax({
             type: 'POST',
-            url: '/emotions/niggers',
+            url: '/emotions/analyse',
             data: fd,
             processData: false,
             contentType: false
