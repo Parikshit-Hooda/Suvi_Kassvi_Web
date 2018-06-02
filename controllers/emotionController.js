@@ -82,6 +82,7 @@ exports.getDashboard = (req, res) => {
 exports.analyser = (req, res) => {
     res.send('post /emotions/analyser');
     console.log(req.body);
+    res.send(req.body);
 
 };
 
