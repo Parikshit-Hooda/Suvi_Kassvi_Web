@@ -71,8 +71,9 @@ app.use((req, res, next) => {
     next();
 });
 
-// After allllll that above middleware, we finally handle our own routes!
-// app.use('/', routes);
+app.use('/', routes); // calls index function in /routes/index.js
+app.use('/users', userRoutes);
+app.use('/emotions', emotionRoutes);
 
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound);
@@ -88,11 +89,6 @@ if (app.get('env') === 'development') {
 
 // production error handler
 app.use(errorHandlers.productionErrors);
-
-// home page
-app.use('/', routes); // calls index function in /routes/index.js
-app.use('/users', userRoutes);
-app.use('/emotions', emotionRoutes);
 
 // create NodeJS HTTP server using 'app'
 http.createServer(app).listen(app.get('port'), function() {
