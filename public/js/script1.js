@@ -79,26 +79,26 @@ function createDownloadLink() {
 
         //formdata post test
         console.log(blob);
-        var fd = new FormData();
+        // var fd = new FormData();
 
-        fd.append('audio_id', `${playanchorElement.download}.wav`);
-        fd.append('audioData', blob);
+        // fd.append('audio_id', `${playanchorElement.download}.wav`);
+        // fd.append('audioData', blob);
 
-        // console.log('formdata' + fd);
+        // // console.log('formdata' + fd);
 
-        var fd = new FormData();
-        $.ajax({
-            type: 'POST',
-            url: '/emotions/analyse',
-            data: fd,
-            processData: false,
-            contentType: false
-        }).done(function(data) {
-            console.log('fd data' + data);
-            for (var pair of fd.entries()) {
-                console.log(pair[0] + ', ' + pair[1]);
-            }
-        });
+        // var fd = new FormData();
+        // $.ajax({
+        //     type: 'POST',
+        //     url: '/emotions/analyse',
+        //     data: fd,
+        //     processData: false,
+        //     contentType: false
+        // }).done(function(data) {
+        //     console.log('fd data' + data);
+        //     for (var pair of fd.entries()) {
+        //         console.log(pair[0] + ', ' + pair[1]);
+        //     }
+        // });
 
         const markup = `
         <div id="recordeddiv" class="yellow lighten-2">

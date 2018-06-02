@@ -57,16 +57,16 @@
             <div class="row">
                 <div class="col s8 l6 m6" id="analysis_input">
                     <h3 id="analysisinputheader">Input Audio</h3>
-                    <form id="inputaudioform" class="" action="#">
+                    <form id="inputaudioform" class="" action="#" enctype="multipart/form-data" method="post">
                         <div class="file-field input-field">
                             <div class="btn">
                                 <span>File</span>
-                                <input type="file">
+                                <input type="file" name="inputaudiofile">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
                             </div>
-                            <a id="audiofilesubmit" class="waves-effect waves-light btn" onclick="audioFileSubmit(this)">Submit</a> </div>
+                            <button type="submit" id="inputaudiofilesubmit" class="waves-effect waves-light btn">Submit</a> </div>
                     </form>
 
                 </div>
@@ -79,13 +79,13 @@
             <div class="" id="analysis_record">
                 <h3 id="analysisrecordheader">Record and Analyse</h3>
                 <button class="waves-effect waves-light btn" onclick="startRecording(this);">record</button>
-                <button class="waves-effect waves-light btn" onclick="stopRecording(this);" disabled>stop</button>
-            </div>
-            <div class="" id="analysis_realtime">
-                <h3 id="analysisrealtimedheader">Realtime - Record and Analyse</h3>
-                <button class="waves-effect waves-light btn" onclick="startRecording(this);">record</button>
-                <button class="waves-effect waves-light btn" onclick="stopRecording(this);" disabled>stop</button>
-            </div>
+                            <button class="waves-effect waves-light btn" onclick="stopRecording(this);" disabled>stop</button>
+                        </div>
+                        <div class="" id="analysis_realtime">
+                            <h3 id="analysisrealtimedheader">Realtime - Record and Analyse</h3>
+                            <button class="waves-effect waves-light btn" onclick="startRecording(this);">record</button>
+                            <button class="waves-effect waves-light btn" onclick="stopRecording(this);" disabled>stop</button>
+                        </div>
         </section>
 
         <section id="recorded">
@@ -108,36 +108,36 @@
             </ul>
 
         </section>
-    </div>
-
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Team Kassvi</h5>
-                    <p class="grey-text text-lighten-4">An emotion recognition project to help autistic children.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Docs</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Team</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
-        <div class="footer-copyright">
+
+        <footer class="page-footer">
             <div class="container">
-                © 2018 Team Kassvi
-                <a class="grey-text text-lighten-4 right" href="#!">Terms and Conditions</a>
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Team Kassvi</h5>
+                        <p class="grey-text text-lighten-4">An emotion recognition project to help autistic children.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Links</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Docs</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Team</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2018 Team Kassvi
+                    <a class="grey-text text-lighten-4 right" href="#!">Terms and Conditions</a>
+                </div>
+            </div>
+        </footer>
 
-    <!-- js scripts -->
-    <script src="./js/recorder.js"></script>
+        <!-- js scripts -->
+        <script src="./js/recorder.js"></script>
 
 
 </body>
