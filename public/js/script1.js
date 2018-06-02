@@ -95,6 +95,9 @@ function createDownloadLink() {
             contentType: false
         }).done(function(data) {
             console.log('fd data' + data);
+            for (var pair of formData.entries()) {
+                console.log(pair[0] + ', ' + pair[1]);
+            }
         });
 
         const markup = `
