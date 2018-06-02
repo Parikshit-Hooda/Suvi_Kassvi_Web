@@ -41,6 +41,14 @@ exports.getEmotionHistory = (req, res) => {
 
 exports.uploadFile = multer(multerOptions).single('uploadFile'); //file upload
 
+exports.analyser = (req, res) => {
+    // res.send('post /emotions/analyser');
+    console.log(req.body);
+    res.send(req.body);
+
+};
+
+
 exports.uploadFileSubmit = (req, res) => {
     if (!req.file) {
         next();
@@ -79,12 +87,6 @@ exports.getDashboard = (req, res) => {
 
 };
 
-exports.analyser = (req, res) => {
-    // res.send('post /emotions/analyser');
-    console.log(req.body);
-    res.send(req.body);
-
-};
 
 
 
