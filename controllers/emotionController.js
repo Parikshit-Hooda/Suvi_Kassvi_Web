@@ -12,7 +12,7 @@ const fs = require('fs');
 const multerOptions = {
     storage: multer.diskStorage({
         destination: function(req, file, callback) {
-            callback(null, './public/audioUploads');
+            callback(null, './');
         },
         filename: function(req, file, callback) {
             // console.log(file);
